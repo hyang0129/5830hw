@@ -87,6 +87,9 @@ int main(int argc, char** argv) {
 		for (int i = 0; i < L1; ++i) {
 			fprintf(fout, "%d ", tempX[i]);
 		}
+		fprintf(fout, "\n");
+
+
 	}
 
 
