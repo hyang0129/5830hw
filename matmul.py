@@ -134,7 +134,7 @@ def main(input_file, output_file):
 
     X = torch.tensor(X, dtype = torch.int32).cuda() 
 
-    batch = 1024
+    batch = 512
 
     results = [] 
     for i in range(0, len(X), batch):
