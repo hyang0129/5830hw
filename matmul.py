@@ -38,7 +38,7 @@ def read_file_with_help(input_file):
     sample = open(input_file, 'r').read()
     N, D, K, A, B, C, M, L1, L2, L3 = [int(s) for s in sample.split('\n')[0].split()]
 
-    os.system('%s %s %s' % (c_file, input_file, temp_file))
+    os.system('./%s %s %s' % (c_file, input_file, temp_file))
 
         
     temp_file = input_file + 'extra'
