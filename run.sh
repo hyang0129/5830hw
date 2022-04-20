@@ -1,1 +1,1 @@
-./matmul $1 $2
+python3 matmul.py $1 $2
