@@ -18,6 +18,7 @@ int* generate_parameters(int x0,int x1, int A,int B,int C,int M,size_t size){
 void forward(int* X,int D,int* P,int L,int* out){
 	for(int j = 0;j < L;++j)
 		out[j] = 0;
+
 	for(int i = 0;i < D;++i){
 		for(int j = 0;j < L;++j){
 			out[j] = (out[j] + X[j] * P[j * D + i]) % M;
@@ -46,13 +47,16 @@ int argmax(int* X,int D){
 int main(int argc,char** argv){
 	FILE* fin = fopen(argv[1],"r");
 	FILE* fout = fopen(argv[2],"w");
-	fscanf(fin,"%d%d%d%d%d%d%d%d%d%d\n",&N,&D,&K,&A,&B,&C,&M,&L1,&L2,&L3);
+	fscanf(fin,"%d%d%d%d%d%d%d%d%d%	d\n",&N,&D,&K,&A,&B,&C,&M,&L1,&L2,&L3);
 	int* X = new int[N * D];
 	for(int i = 0;i < K;++i)
 		fscanf(fin,"%d",&X[i]);
 	fclose(fin);
-	for(int i = K;i < N * D;++i)
+	for(int i = K;i < N * D;++i)1
 		X[i] = ((long long)A * X[i - 1] + (long long)B * X[i - 2] + C) % M;
+
+		std::cout << X[i]
+
 	int* P1 = generate_parameters(X[N * D - 2],X[N * D - 1],A,B,C,M,D * L1);
 	int* P2 = generate_parameters(P1[D * L1 - 2],P1[D * L1 - 1],A,B,C,M,L1 * L2);
 	int* P3 = generate_parameters(P2[L1 * L2 - 2],P2[L1 * L2 - 1],A,B,C,M,L2 * L3);
