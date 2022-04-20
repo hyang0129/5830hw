@@ -109,7 +109,7 @@ def torch_modulo_matmul(X, W, D, M):
 def torch_activation(X, cutoff):
     return torch.nn.Threshold(int(cutoff) - 0.5, 0)(X)
 
-def batch_torch_modulo_matmul(X, W, D):
+def batch_torch_modulo_matmul(X, W, D, M):
 
     w = torch.reshape(W, (-1, D))
     x = torch.reshape(X[:,:w.shape[0]], (len(X), -1, 1))
@@ -140,14 +140,13 @@ def main(input_file, output_file):
     for i in range(0, len(X), batch):
         x = X[i:i+batch]
 
-        x = batch_torch_modulo_matmul(x, P1, D)
+        x = batch_torch_modulo_matmul(x, P1, D, M)
         x = torch_activation(x, M/2)
 
-
-        x = batch_torch_modulo_matmul(x, P2, L1)
+        x = batch_torch_modulo_matmul(x, P2, L1, M)
         x = torch_activation(x, M/2)
         
-        x = batch_torch_modulo_matmul(x, P3, L2)
+        x = batch_torch_modulo_matmul(x, P3, L2, M)
 
         results += list(torch.argmax(x, axis = -1).cpu().numpy())
 
