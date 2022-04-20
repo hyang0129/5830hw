@@ -57,13 +57,15 @@ int main(int argc, char** argv) {
 	fclose(fin);
 	for (int i = K; i < N * D; ++i)
 		X[i] = ((long long)A * X[i - 1] + (long long)B * X[i - 2] + C) % M;
-	for (int i = 0; i < N * D; ++i)
-		std::cout << X[i] << std::endl;
+
 
 	
 	int* P1 = generate_parameters(X[N * D - 2], X[N * D - 1], A, B, C, M, D * L1);
 	int* P2 = generate_parameters(P1[D * L1 - 2], P1[D * L1 - 1], A, B, C, M, L1 * L2);
 	int* P3 = generate_parameters(P2[L1 * L2 - 2], P2[L1 * L2 - 1], A, B, C, M, L2 * L3);
+
+	for (int i = 0; i < D * L1; ++i)
+		std::cout << P[i] << std::endl;
 
 	int* X1 = new int[L1];
 	int* X2 = new int[L2];
