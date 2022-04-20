@@ -64,8 +64,6 @@ int main(int argc, char** argv) {
 	int* P2 = generate_parameters(P1[D * L1 - 2], P1[D * L1 - 1], A, B, C, M, L1 * L2);
 	int* P3 = generate_parameters(P2[L1 * L2 - 2], P2[L1 * L2 - 1], A, B, C, M, L2 * L3);
 
-	for (int i = 0; i < D * L1; ++i)
-		std::cout << P1[i] << std::endl;
 
 	int* X1 = new int[L1];
 	int* X2 = new int[L2];
