@@ -58,18 +58,18 @@ int main(int argc, char** argv) {
 	for (int i = K; i < N * D; ++i)
 		X[i] = ((long long)A * X[i - 1] + (long long)B * X[i - 2] + C) % M;
 
-	for (int i = 0; i < N*D; ++i)
-		std::cout << X[i] << std::endl;
-	std::cout << std::endl;
+	//for (int i = 0; i < N*D; ++i)
+	//	std::cout << X[i] << std::endl;
+	//std::cout << std::endl;
 
 	int* P1 = generate_parameters(X[N * D - 2], X[N * D - 1], A, B, C, M, D * L1);
 	int* P2 = generate_parameters(P1[D * L1 - 2], P1[D * L1 - 1], A, B, C, M, L1 * L2);
 	int* P3 = generate_parameters(P2[L1 * L2 - 2], P2[L1 * L2 - 1], A, B, C, M, L2 * L3);
 
 
-	for (int i = 0; i < D * L1; ++i)
-		std::cout << P1[i] << std::endl;
-	std::cout << std::endl;
+	//for (int i = 0; i < D * L1; ++i)
+	//	std::cout << P1[i] << std::endl;
+	//std::cout << std::endl;
 
 
 	int* X1 = new int[L1];
@@ -81,11 +81,15 @@ int main(int argc, char** argv) {
 	for (int i = 0; i < 1; ++i) {
 		forward(X + i * D, D, P1, L1, X1);
 
-		for (int i = 0; i < L1; ++i)
-			std::cout << X1[i] << std::endl;
+
 
 
 		activation(X1, L1, M / 2);
+
+		for (int i = 0; i < L1; ++i)
+			std::cout << X1[Fi] << std::endl;
+
+
 		forward(X1, L1, P2, L2, X2);
 		activation(X2, L2, M / 2);
 		forward(X2, L2, P3, L3, X3);
