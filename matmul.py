@@ -109,6 +109,17 @@ def torch_modulo_matmul(X, W, D, M):
 def torch_activation(X, cutoff):
     return torch.nn.Threshold(int(cutoff) - 0.5, 0)(X)
 
+def batch_torch_modulo_matmul(X, W, D):
+
+    w = torch.reshape(W, (-1, D))
+    x = torch.reshape(X[:,:w.shape[0]], (len(X), -1, 1))
+
+
+    y = (x * w) % M
+
+
+    return torch.sum(y, axis = -1) % M
+
 
 def main(input_file, output_file):
 
