@@ -85,7 +85,7 @@ int main(int argc, char** argv) {
 		tempX = X + i * D;
 
 		for (int i = 0; i < L1; ++i) {
-			fprintf(fout, "%d ", tempX[i])
+			fprintf(fout, "%d ", tempX[i]);
 		}
 	}
 
