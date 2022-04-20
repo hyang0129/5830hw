@@ -51,7 +51,7 @@ int main(int argc, char** argv) {
 	for (int i = 0; i < K; ++i)
 		fscanf(fin, "%d", &X[i]);
 	
-	for (int i = 0; i < N * D; ++i); 
+	for (int i = 0; i < N * D; ++i)
 		cout << X[i] << endl; 
 
 	fclose(fin);
