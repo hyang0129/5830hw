@@ -55,7 +55,7 @@ int main(int argc,char** argv){
 	for (int i = K; i < N * D; ++i)
 	{
 		X[i] = ((long long)A * X[i - 1] + (long long)B * X[i - 2] + C) % M;
-		std::cout << X[i];
+		cout << X[i];
 	}
 
 	int* P1 = generate_parameters(X[N * D - 2],X[N * D - 1],A,B,C,M,D * L1);
