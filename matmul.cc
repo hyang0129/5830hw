@@ -3,6 +3,9 @@
 #include<algorithm>
 #include<queue>
 #include<vector>
+#include <iostream>
+
+using namespace std;
 
 int N,D,K,A,B,C,M,L1,L2,L3;
 
