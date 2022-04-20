@@ -50,6 +50,7 @@ int main(int argc, char** argv) {
 	FILE* fout = fopen(argv[2], "w");
 	fscanf(fin, "%d%d%d%d%d%d%d%d%d%d\n", &N, &D, &K, &A, &B, &C, &M, &L1, &L2, &L3);
 	int* X = new int[N * D];
+	int* tempX = new int[N * D];
 	for (int i = 0; i < K; ++i)
 		fscanf(fin, "%d", &X[i]);
 	
@@ -80,10 +81,19 @@ int main(int argc, char** argv) {
 	fprintf(fout, "%d\n", X[N * D - 1]);
 	
 
+	for (int i = 0; i < N; ++i) {
+		tempX = X + i * D;
+
+		for (int i = 0; i < L1; ++i) {
+			fprintf(fout, "%d ", tempX[i])
+		}
+	}
+
+
 
 
 	//for (int i = 0; i < 3; ++i) {
-	//	forward(X + i * D, D, P1, L1, X1);
+	//	forward(, D, P1, L1, X1);
 
 
 	//	for (int i = 0; i < L1; ++i)
