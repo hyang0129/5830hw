@@ -54,7 +54,7 @@ int main(int argc, char** argv) {
 		fscanf(fin, "%d", &X[i]);
 	
 	for (int i = 0; i < N * D; ++i)
-		std::cout << X[i] << endl; 
+		std::cout << X[i] << std::endl; 
 
 	fclose(fin);
 	for (int i = K; i < N * D; ++i)
