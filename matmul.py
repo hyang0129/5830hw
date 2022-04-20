@@ -1,6 +1,7 @@
 import numpy as np 
 import torch 
 import os 
+import argparse
 
 def read_file(input_file):
 
@@ -96,7 +97,7 @@ def modulo_matmul(X, W, D):
 
     return np.sum( (x * w) % M, axis = 1) % M 
 
-def torch_modulo_matmul(X, W, D):
+def torch_modulo_matmul(X, W, D, M):
 
     w = torch.reshape(W, (-1, D))
     x = torch.reshape(X[:w.shape[0]], (-1, 1))
@@ -109,7 +110,7 @@ def torch_activation(X, cutoff):
     return torch.nn.Threshold(int(cutoff) - 0.5, 0)(X)
 
 
-def main(input_file, output_file)
+def main(input_file, output_file):
 
     N, D, K, A, B, C, M, L1, L2, L3, X, X2, X1  = read_file_with_help(input_file)
 
@@ -126,13 +127,13 @@ def main(input_file, output_file)
     for i in range(N):
 
    
-        x = torch_modulo_matmul(X[i], P1, D)
+        x = torch_modulo_matmul(X[i], P1, D, M)
         x = torch_activation(x, M/2)
 
-        x = torch_modulo_matmul(x, P2, L1)
+        x = torch_modulo_matmul(x, P2, L1, M)
         x = torch_activation(x, M/2)
        
-        x = torch_modulo_matmul(x, P3, L2)
+        x = torch_modulo_matmul(x, P3, L2, M)
 
         res = torch.argmax(x).cpu();
 
@@ -149,5 +150,6 @@ if __name__ == '__main__':
 
     parser.add_argument('read_path', type = str)
     parser.add_argument('write_path', type = str)
+    args = parser.parse_args()
 
     main(args.read_path, args.write_path)
