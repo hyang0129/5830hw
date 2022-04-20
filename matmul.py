@@ -123,23 +123,22 @@ def main(input_file, output_file):
 
     X = torch.tensor(X, dtype = torch.int32).cuda() 
 
+    batch = 2048
+
     results = [] 
-    for i in range(N):
+    for i in range(0, len(X), batch):
+        x = X[i:i+batch]
 
-   
-        x = torch_modulo_matmul(X[i], P1, D, M)
+        x = batch_torch_modulo_matmul(x, P1, D)
         x = torch_activation(x, M/2)
 
-        x = torch_modulo_matmul(x, P2, L1, M)
+
+        x = batch_torch_modulo_matmul(x, P2, L1)
         x = torch_activation(x, M/2)
-       
-        x = torch_modulo_matmul(x, P3, L2, M)
+        
+        x = batch_torch_modulo_matmul(x, P3, L2)
 
-        res = torch.argmax(x).cpu();
-
-        res = int(res.numpy())
-        results.append(res)
-        # print(res, answers[i])
+        results += list(torch.argmax(x, axis = -1).cpu().numpy())
 
     _ = open(output_file, 'w').write('\n'.join([str(res) for res in results]) + '\n')
 
