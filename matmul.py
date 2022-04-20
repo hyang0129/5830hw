@@ -141,7 +141,7 @@ def main(input_file, output_file):
         results.append(res)
         # print(res, answers[i])
 
-    _ = open(output_file, 'w').write('\n'.join([str(res) for res in results]))
+    _ = open(output_file, 'w').write('\n'.join([str(res) for res in results]) + '\n')
 
     
 if __name__ == '__main__':
