@@ -78,16 +78,15 @@ int main(int argc, char** argv) {
 
 
 
-	for (int i = 0; i < N; ++i) {
+	for (int i = 0; i < 3; ++i) {
 		forward(X + i * D, D, P1, L1, X1);
 
 
-
+		for (int i = 0; i < L1; ++i)
+			std::cout << X1[i] << std::endl;
+		std::cout << std::endl;
 
 		activation(X1, L1, M / 2);
-
-
-
 
 		forward(X1, L1, P2, L2, X2);
 		activation(X2, L2, M / 2);
