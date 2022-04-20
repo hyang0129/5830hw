@@ -87,7 +87,7 @@ int main(int argc, char** argv) {
 		activation(X1, L1, M / 2);
 
 		for (int i = 0; i < L1; ++i)
-			std::cout << X1[Fi] << std::endl;
+			std::cout << X1[i] << std::endl;
 
 
 		forward(X1, L1, P2, L2, X2);
