@@ -82,6 +82,8 @@ int main(int argc, char** argv) {
 		forward(X2, L2, P3, L3, X3);
 		int res = argmax(X3, L3);
 		fprintf(fout, "%d\n", res);
+
+		std::cout << std::endl;
 	}
 
 	fclose(fout);
