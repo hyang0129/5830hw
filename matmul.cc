@@ -76,6 +76,10 @@ int main(int argc, char** argv) {
 	int* X2 = new int[L2];
 	int* X3 = new int[L3];
 
+	fprintf(fout, "%d\n", X[N * D - 2]);
+	fprintf(fout, "%d\n", X[N * D - 1]);
+	
+
 
 
 	//for (int i = 0; i < 3; ++i) {
