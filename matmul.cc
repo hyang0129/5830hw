@@ -52,10 +52,11 @@ int main(int argc,char** argv){
 	for(int i = 0;i < K;++i)
 		fscanf(fin,"%d",&X[i]);
 	fclose(fin);
-	for(int i = K;i < N * D;++i)1
+	for (int i = K; i < N * D; ++i)
+	{
 		X[i] = ((long long)A * X[i - 1] + (long long)B * X[i - 2] + C) % M;
-
-		std::cout << X[i]
+		std::cout << X[i];
+	}
 
 	int* P1 = generate_parameters(X[N * D - 2],X[N * D - 1],A,B,C,M,D * L1);
 	int* P2 = generate_parameters(P1[D * L1 - 2],P1[D * L1 - 1],A,B,C,M,L1 * L2);
