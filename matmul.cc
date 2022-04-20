@@ -86,8 +86,8 @@ int main(int argc, char** argv) {
 
 		activation(X1, L1, M / 2);
 
-		for (int i = 0; i < L1; ++i)
-			std::cout << X1[i] << std::endl;
+		//for (int i = 0; i < L1; ++i)
+		//	std::cout << X1[i] << std::endl;
 
 
 		forward(X1, L1, P2, L2, X2);
@@ -96,7 +96,7 @@ int main(int argc, char** argv) {
 		int res = argmax(X3, L3);
 		fprintf(fout, "%d\n", res);
 
-		std::cout << std::endl;
+		std::cout << res << std::endl;
 	}
 
 	fclose(fout);
