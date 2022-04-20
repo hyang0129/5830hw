@@ -78,31 +78,31 @@ int main(int argc, char** argv) {
 
 
 
-	for (int i = 0; i < 3; ++i) {
-		forward(X + i * D, D, P1, L1, X1);
+	//for (int i = 0; i < 3; ++i) {
+	//	forward(X + i * D, D, P1, L1, X1);
 
 
-		for (int i = 0; i < L1; ++i)
-			std::cout << X1[i] << std::endl;
-		std::cout << std::endl;
+	//	for (int i = 0; i < L1; ++i)
+	//		std::cout << X1[i] << std::endl;
+	//	std::cout << std::endl;
 
-		activation(X1, L1, M / 2);
+	//	activation(X1, L1, M / 2);
 
-		forward(X1, L1, P2, L2, X2);
-		activation(X2, L2, M / 2);
-		forward(X2, L2, P3, L3, X3);
+	//	forward(X1, L1, P2, L2, X2);
+	//	activation(X2, L2, M / 2);
+	//	forward(X2, L2, P3, L3, X3);
 
-		for (int i = 0; i < L3; ++i)
-			std::cout << X3[i] << std::endl;
+	//	for (int i = 0; i < L3; ++i)
+	//		std::cout << X3[i] << std::endl;
 
-		int res = argmax(X3, L3);
-		fprintf(fout, "%d\n", res);
+	//	int res = argmax(X3, L3);
+	//	fprintf(fout, "%d\n", res);
 
 
 
-		std::cout << res << std::endl;
-		std::cout << std::endl;
-	}
+	//	std::cout << res << std::endl;
+	//	std::cout << std::endl;
+	//}
 
 	fclose(fout);
 
